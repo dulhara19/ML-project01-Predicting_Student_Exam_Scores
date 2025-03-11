@@ -28,7 +28,7 @@ y = df['Exam Score']  # Output
 #print x which is study hours
 print(x)
 
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 # # Training the Model
 # model = LinearRegression()
