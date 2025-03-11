@@ -30,6 +30,17 @@ print(x)
 
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
+print( "training X dataset") 
+print(X_train)
+
+print( "training Y dataset") 
+print(y_train)
+
+print( "testing X dataset")
+print(X_test)
+
+print( "testing Y dataset")
+print(y_test)
 # # Training the Model
 # model = LinearRegression()
 # model.fit(X_train, y_train)
