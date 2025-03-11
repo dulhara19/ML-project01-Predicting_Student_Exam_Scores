@@ -10,6 +10,9 @@ data = {'Study Hours': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
         'Exam Score': [50, 55, 65, 70, 75, 78, 85, 88, 92, 95]}  
 df = pd.DataFrame(data)
 
+#print df
+print(df)
+
 # Scatter Plot
 plt.scatter(df['Study Hours'], df['Exam Score'], color='blue', label='Actual Data')
 plt.xlabel("Study Hours")
@@ -19,44 +22,47 @@ plt.legend()
 plt.show()
 
 # Splitting Data (80% Train, 20% Test)
-X = df[['Study Hours']]  # Input feature
+x = df[['Study Hours']]  # Input feature
 y = df['Exam Score']  # Output
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+#print x which is study hours
+print(x)
 
-# Training the Model
-model = LinearRegression()
-model.fit(X_train, y_train)
+# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Model Coefficients
-print(f"Slope (m): {model.coef_[0]}")
-print(f"Intercept (c): {model.intercept_}")
+# # Training the Model
+# model = LinearRegression()
+# model.fit(X_train, y_train)
 
-# Predict on Test Data
-y_pred = model.predict(X_test)
+# # Model Coefficients
+# print(f"Slope (m): {model.coef_[0]}")
+# print(f"Intercept (c): {model.intercept_}")
 
-# Compare Predictions
-results = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
-print(results)
+# # Predict on Test Data
+# y_pred = model.predict(X_test)
 
-# Visualizing Predictions
-plt.scatter(X_train, y_train, color='blue', label='Training Data')
-plt.scatter(X_test, y_test, color='red', label='Actual Test Data')
-plt.plot(X_test, y_pred, color='green', linewidth=2, label='Regression Line')
-plt.xlabel("Study Hours")
-plt.ylabel("Exam Score")
-plt.title("Linear Regression: Study Hours vs Exam Score")
-plt.legend()
-plt.show()
+# # Compare Predictions
+# results = pd.DataFrame({'Actual': y_test, 'Predicted': y_pred})
+# print(results)
 
-# Model Evaluation
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
+# # Visualizing Predictions
+# plt.scatter(X_train, y_train, color='blue', label='Training Data')
+# plt.scatter(X_test, y_test, color='red', label='Actual Test Data')
+# plt.plot(X_test, y_pred, color='green', linewidth=2, label='Regression Line')
+# plt.xlabel("Study Hours")
+# plt.ylabel("Exam Score")
+# plt.title("Linear Regression: Study Hours vs Exam Score")
+# plt.legend()
+# plt.show()
 
-print(f"Mean Squared Error: {mse}")
-print(f"R² Score: {r2}")
+# # Model Evaluation
+# mse = mean_squared_error(y_test, y_pred)
+# r2 = r2_score(y_test, y_pred)
 
-# Predict for a new student who studies 7.5 hours
-new_study_hours = np.array([[7.5]])
-predicted_score = model.predict(new_study_hours)
-print(f"Predicted Score for 7.5 study hours: {predicted_score[0]:.2f}")
+# print(f"Mean Squared Error: {mse}")
+# print(f"R² Score: {r2}")
+
+# # Predict for a new student who studies 7.5 hours
+# new_study_hours = np.array([[7.5]])
+# predicted_score = model.predict(new_study_hours)
+# print(f"Predicted Score for 7.5 study hours: {predicted_score[0]:.2f}")
