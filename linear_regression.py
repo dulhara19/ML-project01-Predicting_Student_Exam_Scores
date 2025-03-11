@@ -22,13 +22,20 @@ plt.legend()
 plt.show()
 
 # Splitting Data (80% Train, 20% Test)
-x = df[['Study Hours']]  # Input feature
+x = df[['Study Hours']]  # Input feature  
 y = df['Exam Score']  # Output
+
+# When you use single square brackets, like df['Study Hours'], it returns a Pandas Series.
+# A Series is essentially a one-dimensional array (column) with labels (index).
+
+# When you use double square brackets, like df[['Study Hours']], it returns a Pandas DataFrame.
+# A DataFrame is a two-dimensional table (like a spreadsheet) with both rows and columns
 
 #print x which is study hours
 print(x)
+print(y)
 
-#plit your dataset into two parts
+#split your dataset into two parts
 X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 print( "training X dataset") 
@@ -76,7 +83,7 @@ r2 = r2_score(y_test, y_pred)
 print(f"Mean Squared Error: {mse}")
 print(f"R² Score: {r2}")
 
-# # Predict for a new student who studies 7.5 hours
-# new_study_hours = np.array([[7.5]])
-# predicted_score = model.predict(new_study_hours)
-# print(f"Predicted Score for 7.5 study hours: {predicted_score[0]:.2f}")
+# Predict for a new student who studies 7.5 hours
+new_study_hours = np.array([[7.5]])
+predicted_score = model.predict(new_study_hours)
+print(f"Predicted Score for 7.5 study hours: {predicted_score[0]:.2f}")
